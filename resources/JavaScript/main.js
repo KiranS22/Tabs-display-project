@@ -1,41 +1,26 @@
-/* 
-In this Javascript file you will need to declare variables used in html file
-and create a function that adds an 'active' class to a tab and the 
-corresponding elements that go along with it.
+const instructions = ()=>{
+  confirm(`welcome to our paired project! \n \nInstructions: Click through the tabs to see images of peopular destinations to vist and a short paragraph describing them.`)
+}
 
-So the tab that is clicked should display the corresponding info and image and 
-hide all other information.
-*/
+const tabs = document.querySelectorAll('.tab-ind');
+const tabsInfo = document.querySelectorAll('.info-card');
+const tabsImg = document.querySelectorAll('.ind-img');
 
-/* Step 1. Declare all variables (tabs,images,info)
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+      tabsInfo.forEach((card) => {
+          card.classList.remove('active')
+      })
+      tabs.forEach((tab) => {
+          tab.classList.remove('active');
+      })
+      tabsImg.forEach((img) => {
+          img.classList.remove('active');
+      })
+      
+      tabs[index].classList.add('active');
+tabsInfo[index].classList.add('active')
+tabsImg[index].classList.add('active')
+})
 
-**** Note: You should be using querySelectorAll to put all elements with the
- same class in their own array; array of tabs, array of imgs, 
- array of infoCards ****
- */
-
-
-
-
-/*Step 2. Create a function that takes in the array of tabs and 
-loops through each tab and adds an 
-event listener 
-*** Note: the function should have the individual tab and index 
-of tab as parameters ***
-*/
-
-
-
-
-/*Step 3. Inside the event listener loop through each array and remove 
-active class from all elements */
-
-
-
-
-
-
-
-
-/* Step 4. Add the 'active' class to the tab that is clicked on 
-and its corresponding images and info card using the index */
+})
